@@ -3,9 +3,545 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3FOLD | Three minds. One vision.</title>
-    <meta name="description" content="3FOLD Drop 001: The Unknown Collection. Oversized graphic tees built by three, worn by all.">
-    <link rel="stylesheet" href="stylesheet.css">
+    <title>Size Chart | 3FOLD</title>
+    <meta name="description" content="3FOLD Premium Tees size chart. Width, length and sleeve measurements for sizes S to 3XL.">
+    <style>
+        /* ---------- BASE ---------- */
+
+        :root {
+            --ink: #111111;
+            --paper: #ffffff;
+            --mist: #f5f5f5;
+            --muted: #555555;
+            --red: #c91d2a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; /* keeps section titles clear of the sticky nav */
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: Arial, sans-serif;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--red);
+            outline-offset: 3px;
+        }
+
+        /* ---------- NAVBAR ---------- */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 9%;
+            background-color: var(--ink);
+            border-bottom: 1px solid #333333;
+        }
+
+        .logo img {
+            width: 140px;
+            height: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+            border-bottom-color: var(--red);
+        }
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 80vh;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 9%;
+            background-color: var(--paper);
+        }
+
+        .hero-label {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin: 0 0 25px;
+        }
+
+        .hero h1 {
+            color: var(--ink);
+            font-size: clamp(44px, 6.5vw, 100px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -3px;
+            margin: 0;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 18px 35px;
+            background-color: var(--ink);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .hero-button:hover {
+            background-color: var(--red);
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ---------- SHOP ---------- */
+
+        .shop-section {
+            padding: 100px 9%;
+            background-color: var(--mist);
+        }
+
+        .shop-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .shop-section h2 {
+            font-size: clamp(44px, 6vw, 65px);
+            font-weight: 900;
+            margin: 15px 0 5px;
+            color: var(--ink);
+        }
+
+        .shop-subtitle {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin: 0 0 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--paper);
+            padding-bottom: 25px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            color: var(--ink);
+            margin: 10px 15px 0;
+        }
+
+        .product-card .price {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--ink);
+            margin: 10px 0 18px;
+        }
+
+        .order-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid var(--ink);
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+        }
+
+        .order-button:hover {
+            background-color: var(--red);
+            border-color: var(--red);
+            color: #ffffff;
+        }
+
+        /* shipping / payment strip */
+
+        .info-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            list-style: none;
+            margin: 60px 0 0;
+            padding: 30px 0 0;
+            border-top: 1px solid #d5d5d5;
+        }
+
+        .info-strip li {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .info-strip strong {
+            display: block;
+            color: var(--ink);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-strip a {
+            color: var(--ink);
+        }
+
+        .info-strip a:hover {
+            color: var(--red);
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 40px;
+            padding: 60px 9% 30px;
+            background-color: var(--ink);
+            color: #ffffff;
+        }
+
+        .footer-brand img {
+            width: 120px;
+            height: auto;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: #aaaaaa;
+            font-size: 14px;
+            margin: 14px 0 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--red);
+        }
+
+        .footer-copy {
+            grid-column: 1 / -1;
+            margin: 20px 0 0;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            font-size: 12px;
+            color: #888888;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 6%;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            html {
+                scroll-padding-top: 120px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 50px 6%;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .shop-section {
+                padding: 70px 6%;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .product-card img {
+                height: 240px;
+            }
+
+            .product-card h3 {
+                font-size: 14px;
+            }
+
+            .order-button {
+                padding: 10px 14px;
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 50px 6% 24px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 340px;
+            }
+        }
+
+        /* respect people who turn off motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ---------- SIZE CHART PAGE ---------- */
+
+        .nav-links a[aria-current="page"] {
+            border-bottom-color: #ffffff;
+        }
+
+        .page-header {
+            padding: 70px 9% 40px;
+            background-color: var(--paper);
+        }
+
+        .page-header h1 {
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin: 0 0 14px;
+            color: var(--ink);
+        }
+
+        .page-header p {
+            max-width: 60ch;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .size-section {
+            padding: 60px 9% 100px;
+            background-color: var(--mist);
+        }
+
+        .size-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .size-guide h2,
+        .size-table-wrap h2 {
+            font-size: 22px;
+            font-weight: 900;
+            margin: 0 0 18px;
+            color: var(--ink);
+        }
+
+        .size-guide ol {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .size-guide li {
+            margin-bottom: 12px;
+        }
+
+        .size-guide strong {
+            color: var(--ink);
+        }
+
+        .size-note {
+            margin-top: 26px;
+            padding: 16px 18px;
+            background-color: var(--paper);
+            border-left: 4px solid var(--red);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        .size-table {
+            width: 100%;
+            min-width: 460px;
+            border-collapse: collapse;
+            background-color: var(--paper);
+            color: var(--ink);
+            text-align: center;
+        }
+
+        .size-table caption {
+            text-align: left;
+            font-size: 13px;
+            color: var(--muted);
+            padding-bottom: 12px;
+        }
+
+        .size-table th,
+        .size-table td {
+            padding: 18px 10px;
+            border: 1px solid var(--ink);
+        }
+
+        .size-table thead th {
+            background-color: var(--ink);
+            color: #ffffff;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .size-table tbody th {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .size-table td {
+            font-size: 15px;
+        }
+
+        .size-table td span {
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            color: #777777;
+        }
+
+        .size-table tbody tr:hover {
+            background-color: #fbeaec;
+        }
+
+        .chart-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .chart-link:hover {
+            color: var(--red);
+        }
+
+        @media (max-width: 800px) {
+            .page-header {
+                padding: 50px 6% 30px;
+            }
+
+            .size-section {
+                padding: 40px 6% 70px;
+            }
+
+            .size-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
@@ -18,10 +554,123 @@
         <ul class="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="index.html#shop">SHOP</a></li>
-            <li><a href="size-chart.html">SIZE CHART</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="size-chart.html" aria-current="page">SIZE CHART</a></li>
             <li><a href="contact.html">CONTACT US</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
         </ul>
     </nav>
 
-  
+    <main>
+
+        <header class="page-header">
+            <h1>SIZE CHART.</h1>
+            <p>3FOLD Premium Tees come in an oversized fit. Find your size below, then order through Messenger.</p>
+        </header>
+
+        <section class="size-section">
+            <div class="size-layout">
+
+                <div class="size-guide">
+                    <h2>How to pick your size</h2>
+                    <ol>
+                        <li>Lay a tee you already like flat on a table.</li>
+                        <li><strong>Width:</strong> measure straight across the chest, from one side seam to the other.</li>
+                        <li><strong>Length:</strong> measure from the top of the shoulder, next to the collar, down to the bottom hem.</li>
+                        <li><strong>Sleeve:</strong> measure from the shoulder seam to the end of the sleeve.</li>
+                        <li>Compare your numbers with the chart. For a looser look, go one size up.</li>
+                    </ol>
+
+                    <p class="size-note">
+                        All measurements are taken with the shirt laid flat, so small differences can happen between pieces.
+                        Not sure which size to get? Message us and we'll help.
+                    </p>
+                </div>
+
+                <div class="size-table-wrap">
+                    <h2>3FOLD Premium Tees</h2>
+
+                    <div class="table-scroll">
+                        <table class="size-table">
+                            <caption>Measurements in inches, with centimeters below.</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">SIZE</th>
+                                    <th scope="col">WIDTH</th>
+                                    <th scope="col">LENGTH</th>
+                                    <th scope="col">SLEEVE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">S</th>
+                                    <td>19 in<span>48.3 cm</span></td>
+                                    <td>26 in<span>66.0 cm</span></td>
+                                    <td>8.5 in<span>21.6 cm</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">M</th>
+                                    <td>20 in<span>50.8 cm</span></td>
+                                    <td>27 in<span>68.6 cm</span></td>
+                                    <td>8.5 in<span>21.6 cm</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">L</th>
+                                    <td>21 in<span>53.3 cm</span></td>
+                                    <td>28 in<span>71.1 cm</span></td>
+                                    <td>10 in<span>25.4 cm</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">XL</th>
+                                    <td>22.5 in<span>57.2 cm</span></td>
+                                    <td>29.5 in<span>74.9 cm</span></td>
+                                    <td>10 in<span>25.4 cm</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2XL</th>
+                                    <td>23.5 in<span>59.7 cm</span></td>
+                                    <td>30.5 in<span>77.5 cm</span></td>
+                                    <td>11 in<span>27.9 cm</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3XL</th>
+                                    <td>24.5 in<span>62.2 cm</span></td>
+                                    <td>31.5 in<span>80.0 cm</span></td>
+                                    <td>11 in<span>27.9 cm</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Opens your original chart image, handy for saving or sharing -->
+                    <a class="chart-link" href="size-chart.jpg" target="_blank" rel="noopener">VIEW CHART IMAGE</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="3FOLD logo.png" alt="3FOLD logo">
+            <p>Three minds. One vision.</p>
+        </div>
+
+        <ul class="footer-links">
+            <li><a href="index.html#shop">Shop</a></li>
+            <li><a href="size-chart.html">Size chart</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+
+        <!-- Replace # with your real page links -->
+        <ul class="footer-links">
+            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+
+        <p class="footer-copy">© 2026 3FOLD. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
